@@ -1,0 +1,45 @@
+﻿<h1>TỈNH - HUYỆN - XÃ</h1>
+<a href="#/addData" class="btn btn-info" style="margin-top: 10px; margin-bottom: 10px">Create new</a>
+<br />
+<strong style="text-transform: uppercase">Lựa chọn</strong>
+<select name="select" style="width: 300px; text-align: center; margin-top: 10px; margin-bottom: 10px; margin-left: 50px" >
+    <option value="Tinh">Tỉnh</option>
+    <option value="Huyen">Huyện</option>
+    <option value="Xa">Xã</option>
+</select>
+<div class="panel panel-default">
+    <div class="panel-heading" style="text-transform: uppercase">
+        Danh sách các tỉnh
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Mã Tỉnh</th>
+                    <th>Tên Tỉnh</th>
+                    <th>Mã BHYT</th>
+                    <th>Show</th>
+                    <th>Lựa Chọn</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="i in data">
+                    <td>{{ i.matinh }}</td>
+                    <td>{{ i.tentinh }}</td>
+                    <td>{{ i.mabhyt }}</td>
+                    <td>{{ i.show }}</td>
+                    <td>
+                        <a class="btn btn-success" href="#/editData/{{i.matinh}}" >Edit</a>  
+                        <a class="btn btn-danger" href="" ng-click="deleteData(i.matinh)">Delete</a>
+                    </td>
+                </tr>
+                <tr ng-if=" !data  || data.length == 0 ">
+                    <td colspan="4" style="text-align: center">
+                        Không có dữ liệu
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
